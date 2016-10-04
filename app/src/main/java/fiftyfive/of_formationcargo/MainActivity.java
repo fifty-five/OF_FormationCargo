@@ -3,9 +3,13 @@ package fiftyfive.of_formationcargo;
 import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+
+import com.fiftyfive.cargo.Cargo;
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.tagmanager.ContainerHolder;
+import com.google.android.gms.tagmanager.DataLayer;
 import com.google.android.gms.tagmanager.TagManager;
 
 import java.util.concurrent.TimeUnit;
@@ -59,8 +63,31 @@ public class MainActivity extends AppCompatActivity {
         }, 5, TimeUnit.SECONDS);
 
 
+        //INit CArgo
+
+        Cargo cargo;
+
+        Cargo.init(this.getApplication(), ContainerHolderSingleton.getContainerHolder().getContainer());
+        cargo = Cargo.getInstance();
+
+        //Register Handlers
+        if (cargo != null){
+            cargo.registerHandlers();
+        }
+        else{
+            Log.w("MainActivity", "Please instantiate cargo before calling its methods");
+        }
 
 
+        // Get the DataLayer
+        DataLayer dataLayer = TagManager.getInstance(this).getDataLayer();
+
+
+        //Push a GA Event
+        dataLayer.pushEvent("fireGA", DataLayer.mapOf("eventName", "testEventGA",
+                                                        "eventCategory", "testCategory",
+                                                        "eventAction", "testAction",
+                                                        "eventLabel", "testLabel"));
     }
 
 }
