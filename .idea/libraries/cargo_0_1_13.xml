@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="cargo-0.1.13">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.fiftyfive.cargo/cargo/0.1.13/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.fiftyfive.cargo/cargo/0.1.13/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fiftyfive.cargo/cargo/0.1.13/e48ac8eb766821831218e476a2d1ccccb5f0fff8/cargo-0.1.13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
